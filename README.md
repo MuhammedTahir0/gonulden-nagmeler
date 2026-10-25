@@ -9,19 +9,25 @@ Bu proje, **Nur Kendir**'in ([@hafsa_ennur38](https://www.instagram.com/hafsa_en
 ## ✨ Özellikler
 
 - 📜 **95 Bölümlük Tam Arşiv:** Her gönderinin hem ana görsel aforizması hem de alt tefekkür metni eksiksiz yer alır.
-- **Yatay Gönderi Okuyucu:** Gönderiler alt alta sıralanmak yerine tek kart olarak açılır. Telefonda sağa/sola kaydırın; bilgisayarda Önceki/Sonraki düğmelerini veya okuyucu odaktayken yön tuşlarını kullanın. Sayaç geçerli sırayı gösterir; uzun yazılar dikey okunmaya devam eder.
+- **Yatay Gönderi Okuyucu:** Gönderiler tek kart olarak açılır. Telefonda sağa/sola kaydırın; bilgisayarda okuyucu odaktayken yön tuşlarını kullanın. Önceki / sayaç / Sonraki çubuğu hem gönderinin üstünde hem altında bulunur ve birlikte güncellenir. Alt çubuktan geçişte yeni gönderinin başına dönülür; uzun yazılar dikey okunmaya devam eder.
 - 🔍 **Canlı Arama & Filtreleme:** Arama çubuğu üzerinden başlık ve metinler içinde anında arama yapılabilir.
 - 📊 **Okuma İlerleme Çubuğu:** Sayfayı kaydırdıkça okuma durumunu gösteren zarif gösterge.
-- 📑 **İçindekiler Fihristi:** 6 ana tematik bölüme ayrılmış hızlı atlama fihristi:
-  1. *Duruş ve Asalet (Sükûtun Gücü & Şahsiyet)*
-  2. *Kırık Kalpler ve Yaralar (Dert, Hüzün ve İmtihan)*
-  3. *Hakiki Sevgi ve İnsan İlişkileri (Vefa, Dostluk ve Mesafe)*
-  4. *Tevekkül, Dua ve İlahi Adalet (Hüküm Yalnız Allah’ındır)*
-  5. *Zaman, Gençlik ve Ahir Zaman (Dünyanın Faniliği)*
-  6. *Kudüs ve Ümmet Bilinci (Gazze, Diriliş ve Onur)*
+- **Açılır-Kapanır İçindekiler:** Altı bölüm başlangıçta kapalıdır; bölüm başlığına tıklayın veya klavyeyle Enter/Space kullanın. Bölümler bağımsız açılıp kapanır, gönderi bağlantıları ilgili kartı açar:
+  1. *Duruş ve Asalet*
+  2. *Bir Kalbe İyi Gelmek*
+  3. *Kendi Elinden Tutmak*
+  4. *Nur'un Kaleminden: Seccade ve Tevekkül*
+  5. *Gönülden Nağmeler*
+  6. *Hikmet Damlaları*
 - 🖨️ **Baskı & PDF Modu:** Tek tuşla temiz, sayfa numaralı ve kitap formatında PDF çıktısı alma desteği.
 - 📱 **Duyarlı Tasarım:** Telefonlarda uzun metin ve hashtag satırları taşmadan kırılır; dar ekranlarda kart başlıkları ve bağlantılar alt alta yerleşir. Üst menü iki satıra iner, dokunmatik kontroller en az 44 px alana sahiptir.
 - ⚡ **Sıfır Bağımlılık:** Hızlı yüklenen, harici çerçeve (framework) gerektirmeyen saf HTML5, CSS3 ve modern JavaScript.
+
+### Alt gezinme çubuğu ve açılır-kapanır bölümler — 2026-10-25
+
+- Gönderinin altına üsttekiyle eşzamanlı çalışan gezinme çubuğu eklendi. Arama, dokunmatik kaydırma, ilk/son gönderi ve sıfır sonuç durumlarında her iki çubuğun sayaçları ve düğmeleri aynı durumu gösterir.
+- Fihristte yerel HTML `details` / `summary` kullanılır; açma/kapama JavaScript kapalıyken de çalışır. Yazdırmada bölümler geçici olarak açılır ve ardından kullanıcının açık/kapalı durumu geri yüklenir.
+- OMP Gemini 3.8 Flash/high alt ajanıyla gerçek Chromium'da alt/üst düğmeler, dokunmatik kaydırma, fihrist/klavye etkileşimi, arama, yazdırma medyası ve 320/375/430/1440 px yerleşimler kontrol edildi. 95 gönderinin ve fihrist bağlantılarının metinleri korundu. Fiziksel telefon/Safari üzerinde test yapılmadı.
 
 ### Yatay kaydırmalı okuma — 2026-10-25
 

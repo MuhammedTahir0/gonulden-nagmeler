@@ -238,31 +238,127 @@
   }
 
   .toc-chapter {
-    margin-bottom: 25px;
-    padding-bottom: 15px;
+    margin-bottom: 22px;
+    padding-bottom: 14px;
     border-bottom: 1px dashed var(--border-color);
+  }
+
+  .toc-chapter:last-child {
+    margin-bottom: 0;
+  }
+
+  .toc-chapter-summary {
+    cursor: pointer;
+    min-height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 8px 10px;
+    margin: -4px -10px;
+    border-radius: 6px;
+    list-style: none;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .toc-chapter-summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .toc-chapter-summary::marker {
+    display: none;
+  }
+
+  .toc-chapter-summary:hover {
+    background-color: rgba(197, 160, 89, 0.08);
+  }
+
+  .toc-chapter-summary:focus {
+    outline: none;
+  }
+
+  .toc-chapter-summary:focus-visible {
+    outline: 2px solid var(--accent-burgundy);
+    outline-offset: 2px;
+    background-color: rgba(197, 160, 89, 0.08);
   }
 
   .toc-chapter-header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px 12px;
     font-family: 'Cinzel', serif;
     font-size: 18px;
     font-weight: 700;
     color: var(--accent-burgundy);
+    width: 100%;
+  }
+
+  .toc-chapter-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .toc-chapter-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .toc-chapter-count {
+    font-size: 14px;
+    color: var(--gold);
+    font-weight: 600;
+  }
+
+  .toc-chevron {
+    width: 16px;
+    height: 16px;
+    color: var(--gold);
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  .toc-chapter[open] .toc-chevron {
+    transform: rotate(90deg);
   }
 
   .toc-sub {
     font-size: 14px;
     color: var(--text-muted);
     font-style: italic;
-    margin-bottom: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .toc-links {
     list-style: none;
     padding-left: 20px;
     font-size: 16px;
+    margin-top: 12px;
+  }
+
+  .toc-chapter[open] .toc-links {
+    animation: tocFadeIn 0.2s ease-out;
+  }
+
+  @keyframes tocFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-4px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 
   .toc-links li {
@@ -282,6 +378,14 @@
     text-decoration: underline;
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .toc-chevron {
+      transition: none;
+    }
+    .toc-chapter[open] .toc-links {
+      animation: none;
+    }
+  }
   /* Chapter Header */
   .chapter-divider {
     text-align: center;
@@ -1182,6 +1286,12 @@
     opacity: 1;
     pointer-events: auto;
   }
+  .back-to-top.controls-intersecting {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+    transform: translateY(12px) scale(0.85);
+  }
   .back-to-top:hover {
     background: var(--gold);
     color: #fff;
@@ -1344,6 +1454,11 @@
     box-sizing: border-box;
   }
 
+  .reader-controls-bottom {
+    margin-top: 16px;
+    margin-bottom: 0;
+  }
+
   .reader-controls button {
     display: inline-flex;
     align-items: center;
@@ -1391,7 +1506,8 @@
   }
 
   .reader-controls p,
-  #readerStatus {
+  #readerStatus,
+  #readerStatusBottom {
     margin: 0;
     font-family: 'Cinzel', serif;
     font-size: 15px;
@@ -1496,7 +1612,8 @@
       letter-spacing: 0.5px;
     }
     .reader-controls p,
-    #readerStatus {
+    #readerStatus,
+    #readerStatusBottom {
       font-size: 13.5px;
       padding: 0 4px;
     }
@@ -1522,7 +1639,8 @@
       font-size: 12px;
     }
     .reader-controls p,
-    #readerStatus {
+    #readerStatus,
+    #readerStatusBottom {
       font-size: 12.5px;
     }
   }
@@ -1545,6 +1663,40 @@
     .book-cover { min-height: 95vh; box-shadow: none; border-width: 2px; }
     .entry-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; margin-bottom: 25pt; }
     .chapter-divider { page-break-before: always; }
+    /* Table of Contents Print Overrides */
+    .toc-section {
+      box-shadow: none !important;
+      border: 1px solid #ccc !important;
+      padding: 20pt !important;
+      page-break-after: always;
+      break-after: page;
+    }
+    .toc-chapter {
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+      margin-bottom: 16pt !important;
+      padding-bottom: 10pt !important;
+      border-bottom: 1px dashed #ccc !important;
+    }
+    .toc-chapter summary {
+      cursor: default !important;
+      list-style: none !important;
+      padding: 0 !important;
+      margin: 0 !important;
+      min-height: auto !important;
+    }
+    .toc-chapter summary::-webkit-details-marker,
+    .toc-chapter summary::marker {
+      display: none !important;
+    }
+    .toc-chevron {
+      display: none !important;
+    }
+    .toc-links {
+      display: block !important;
+      padding-left: 15pt !important;
+      margin-top: 8pt !important;
+    }
     /* Swipe Reader Print Overrides */
     .reader-controls,
     .reader-hint {
@@ -1661,12 +1813,17 @@
   <div class="toc-section" id="fihrist">
     <h2 class="section-title">İçindekiler</h2>
 
-    <div class="toc-chapter">
-      <div class="toc-chapter-header">
-        <span>Bölüm I: Duruş ve Asalet</span>
-        <span style="font-size: 14px; color: var(--gold);">12 Yazı</span>
-      </div>
-      <div class="toc-sub">Sessizliğin Gücü ve Sınırların Zarafeti</div>
+    <details class="toc-chapter">
+      <summary class="toc-chapter-summary">
+        <div class="toc-chapter-header">
+          <span class="toc-chapter-title">Bölüm I: Duruş ve Asalet</span>
+          <span class="toc-chapter-badge">
+            <span class="toc-chapter-count">12 Yazı</span>
+            <svg class="toc-chevron" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="toc-sub">Sessizliğin Gücü ve Sınırların Zarafeti</div>
+      </summary>
       <ul class="toc-links">
         <li><a href="#entry-1">1. ASALET SESSİZLİKTE GİZLİDİR</a></li>
         <li><a href="#entry-16">16. ZAMAN HERKESİN MASKESİNİ DÜŞÜRÜR Kendini anlatmak ...</a></li>
@@ -1681,14 +1838,19 @@
         <li><a href="#entry-77">77. UMARIM HAYAT BENİM İÇİN İYİ OLMAYANLARI HAYATIMDAN...</a></li>
         <li><a href="#entry-81">81. KAYSERİ - İyi biri olmaktan vazgeçmedim, herkese i...</a></li>
       </ul>
-    </div>
+    </details>
 
-    <div class="toc-chapter">
-      <div class="toc-chapter-header">
-        <span>Bölüm II: Bir Kalbe İyi Gelmek</span>
-        <span style="font-size: 14px; color: var(--gold);">15 Yazı</span>
-      </div>
-      <div class="toc-sub">Yoldaşlık, Şifa ve Hesapsız Merhamet</div>
+    <details class="toc-chapter">
+      <summary class="toc-chapter-summary">
+        <div class="toc-chapter-header">
+          <span class="toc-chapter-title">Bölüm II: Bir Kalbe İyi Gelmek</span>
+          <span class="toc-chapter-badge">
+            <span class="toc-chapter-count">15 Yazı</span>
+            <svg class="toc-chevron" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="toc-sub">Yoldaşlık, Şifa ve Hesapsız Merhamet</div>
+      </summary>
       <ul class="toc-links">
         <li><a href="#entry-2">2. BİR KALBE İYİ GELMEK</a></li>
         <li><a href="#entry-3">3. KALBİN IŞIĞI</a></li>
@@ -1706,14 +1868,19 @@
         <li><a href="#entry-74">74. İÇİMDE BİR SAVAŞ YOK, ÇİÇEK BAHÇESİNE ÇEVİRDİM HAY...</a></li>
         <li><a href="#entry-79">79. ben hâlâ inanıyorum her şeye rağmen iyiliğe, kirle...</a></li>
       </ul>
-    </div>
+    </details>
 
-    <div class="toc-chapter">
-      <div class="toc-chapter-header">
-        <span>Bölüm III: Kendi Elinden Tutmak</span>
-        <span style="font-size: 14px; color: var(--gold);">25 Yazı</span>
-      </div>
-      <div class="toc-sub">Kırgınlıklar, Büyümek ve Yeniden Başlama Cesareti</div>
+    <details class="toc-chapter">
+      <summary class="toc-chapter-summary">
+        <div class="toc-chapter-header">
+          <span class="toc-chapter-title">Bölüm III: Kendi Elinden Tutmak</span>
+          <span class="toc-chapter-badge">
+            <span class="toc-chapter-count">25 Yazı</span>
+            <svg class="toc-chevron" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="toc-sub">Kırgınlıklar, Büyümek ve Yeniden Başlama Cesareti</div>
+      </summary>
       <ul class="toc-links">
         <li><a href="#entry-7">7. PES ETME</a></li>
         <li><a href="#entry-8">8. İÇİNDEKİ IŞIĞI KEŞFET</a></li>
@@ -1741,14 +1908,19 @@
         <li><a href="#entry-46">46. BU DA GEÇER Şu an göğsüne oturan o ağır yükün hiç ...</a></li>
         <li><a href="#entry-78">78. 🤍 Neyi kaybettiysek daha iyisine sözümüz var..</a></li>
       </ul>
-    </div>
+    </details>
 
-    <div class="toc-chapter">
-      <div class="toc-chapter-header">
-        <span>Bölüm IV: Nur&#x27;un Kaleminden: Seccade ve Tevekkül</span>
-        <span style="font-size: 14px; color: var(--gold);">17 Yazı</span>
-      </div>
-      <div class="toc-sub">Rabbin Seni Terk Etmedi, Darılmadı</div>
+    <details class="toc-chapter">
+      <summary class="toc-chapter-summary">
+        <div class="toc-chapter-header">
+          <span class="toc-chapter-title">Bölüm IV: Nur&#x27;un Kaleminden: Seccade ve Tevekkül</span>
+          <span class="toc-chapter-badge">
+            <span class="toc-chapter-count">17 Yazı</span>
+            <svg class="toc-chevron" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="toc-sub">Rabbin Seni Terk Etmedi, Darılmadı</div>
+      </summary>
       <ul class="toc-links">
         <li><a href="#entry-29">29. GÜRÜLTÜYÜ BIRAK, İÇİNİ DİNLE</a></li>
         <li><a href="#entry-42">42. KADERİN TECELLİSİ Bazen senin çok istediğin bir şe...</a></li>
@@ -1768,14 +1940,19 @@
         <li><a href="#entry-75">75. Kuşlara dahi bir yol çizen Allah, insanı mı yolsuz...</a></li>
         <li><a href="#entry-80">80. İmtihan zordur; kırar, üzer, güldürür de, sevindir...</a></li>
       </ul>
-    </div>
+    </details>
 
-    <div class="toc-chapter">
-      <div class="toc-chapter-header">
-        <span>Bölüm V: Gönülden Nağmeler</span>
-        <span style="font-size: 14px; color: var(--gold);">12 Yazı</span>
-      </div>
-      <div class="toc-sub">Sükûn, Hüzün ve Mahza Bir Hayat</div>
+    <details class="toc-chapter">
+      <summary class="toc-chapter-summary">
+        <div class="toc-chapter-header">
+          <span class="toc-chapter-title">Bölüm V: Gönülden Nağmeler</span>
+          <span class="toc-chapter-badge">
+            <span class="toc-chapter-count">12 Yazı</span>
+            <svg class="toc-chevron" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="toc-sub">Sükûn, Hüzün ve Mahza Bir Hayat</div>
+      </summary>
       <ul class="toc-links">
         <li><a href="#entry-57">57. GÖNÜLDEN NAĞMELER</a></li>
         <li><a href="#entry-60">60. Tabip neşter vurma gönül yarama,</a></li>
@@ -1790,14 +1967,19 @@
         <li><a href="#entry-71">71. Ben yine burada hiçbir şey söylemeden duracağım ve...</a></li>
         <li><a href="#entry-72">72. Kitap &amp; Kahve:</a></li>
       </ul>
-    </div>
+    </details>
 
-    <div class="toc-chapter">
-      <div class="toc-chapter-header">
-        <span>Bölüm VI: Hikmet Damlaları</span>
-        <span style="font-size: 14px; color: var(--gold);">14 Yazı</span>
-      </div>
-      <div class="toc-sub">Ayetler, Nebevî Öğütler ve Kadim Hatırlatmalar</div>
+    <details class="toc-chapter">
+      <summary class="toc-chapter-summary">
+        <div class="toc-chapter-header">
+          <span class="toc-chapter-title">Bölüm VI: Hikmet Damlaları</span>
+          <span class="toc-chapter-badge">
+            <span class="toc-chapter-count">14 Yazı</span>
+            <svg class="toc-chevron" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true" focusable="false"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+        </div>
+        <div class="toc-sub">Ayetler, Nebevî Öğütler ve Kadim Hatırlatmalar</div>
+      </summary>
       <ul class="toc-links">
         <li><a href="#entry-82">82. Hafız @ilkhanemsin</a></li>
         <li><a href="#entry-83">83. Hafız @ilkhanemsin</a></li>
@@ -1814,13 +1996,14 @@
         <li><a href="#entry-94">94. Hafız @ilkhanemsin</a></li>
         <li><a href="#entry-95">95. Hafız @ilkhanemsin</a></li>
       </ul>
-    </div>
+    </details>
   </div>
 
   <section id="post-reader" class="post-reader" hidden aria-label="Gönderiler">
     <div class="reader-controls"><button id="previousPost" type="button" aria-label="Önceki gönderi">← Önceki</button><p id="readerStatus" role="status" aria-live="polite" aria-atomic="true"></p><button id="nextPost" type="button" aria-label="Sonraki gönderi">Sonraki →</button></div>
     <p class="reader-hint">Gönderiler arasında sağa veya sola kaydırın.</p>
     <div id="readerViewport" class="reader-viewport" tabindex="0" role="region" aria-label="Kaydırılabilir gönderiler"><div id="readerTrack" class="reader-track"></div></div>
+    <div class="reader-controls reader-controls-bottom"><button id="previousPostBottom" type="button" aria-label="Önceki gönderi">← Önceki</button><p id="readerStatusBottom" aria-hidden="true"></p><button id="nextPostBottom" type="button" aria-label="Sonraki gönderi">Sonraki →</button></div>
   </section>
   <!-- Chapters Start -->
 
@@ -4674,6 +4857,15 @@ Kurban olduğum Hz. Muhammed (s.a.v) Efendimiz canını teslim ederken şöyle d
       } else {
         btt.classList.remove('visible');
       }
+      const btmControls = document.querySelector('.reader-controls-bottom');
+      if (btmControls) {
+        const btmRect = btmControls.getBoundingClientRect();
+        if (btmRect.top < window.innerHeight && btmRect.bottom > 0) {
+          btt.classList.add('controls-intersecting');
+        } else {
+          btt.classList.remove('controls-intersecting');
+        }
+      }
     }
   }, { passive: true });
 
@@ -4682,6 +4874,19 @@ Kurban olduğum Hz. Muhammed (s.a.v) Efendimiz canını teslim ederken şöyle d
     btt.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
     });
+    const btmControls = document.querySelector('.reader-controls-bottom');
+    if (btmControls && 'IntersectionObserver' in window) {
+      const bttObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            btt.classList.add('controls-intersecting');
+          } else {
+            btt.classList.remove('controls-intersecting');
+          }
+        });
+      }, { threshold: 0 });
+      bttObserver.observe(btmControls);
+    }
   }
 
   // Swipe Reader Setup & Progressive Enhancement
@@ -4691,6 +4896,12 @@ Kurban olduğum Hz. Muhammed (s.a.v) Efendimiz canını teslim ederken şöyle d
   const previousPost = document.getElementById('previousPost');
   const nextPost = document.getElementById('nextPost');
   const readerStatus = document.getElementById('readerStatus');
+  const previousPostBottom = document.getElementById('previousPostBottom');
+  const nextPostBottom = document.getElementById('nextPostBottom');
+  const readerStatusBottom = document.getElementById('readerStatusBottom');
+  const prevButtons = [previousPost, previousPostBottom].filter(Boolean);
+  const nextButtons = [nextPost, nextPostBottom].filter(Boolean);
+  const statusElements = [readerStatus, readerStatusBottom].filter(Boolean);
   const noResults = document.getElementById('noResultsMessage');
   const searchInput = document.getElementById('searchInput');
   const clearSearch = document.getElementById('clearSearch');
@@ -4793,24 +5004,23 @@ Kurban olduğum Hz. Muhammed (s.a.v) Efendimiz canını teslim ederken şöyle d
     function updateReaderUI() {
       const visibleCount = visibleSlides.length;
       if (visibleCount === 0) {
-        if (previousPost) previousPost.disabled = true;
-        if (nextPost) nextPost.disabled = true;
-        if (readerStatus) readerStatus.textContent = '0 / 0';
+        prevButtons.forEach(btn => { btn.disabled = true; });
+        nextButtons.forEach(btn => { btn.disabled = true; });
+        statusElements.forEach(el => { el.textContent = '0 / 0'; });
         return;
       }
 
       // Boundary buttons: nonwrapping disabled
-      if (previousPost) previousPost.disabled = (currentIndex <= 0);
-      if (nextPost) nextPost.disabled = (currentIndex >= visibleCount - 1);
+      const isPrevDisabled = (currentIndex <= 0);
+      const isNextDisabled = (currentIndex >= visibleCount - 1);
+      prevButtons.forEach(btn => { btn.disabled = isPrevDisabled; });
+      nextButtons.forEach(btn => { btn.disabled = isNextDisabled; });
 
       // Reader status
-      if (readerStatus) {
-        if (visibleCount === totalCount) {
-          readerStatus.textContent = `${currentIndex + 1} / ${totalCount}`;
-        } else {
-          readerStatus.textContent = `${currentIndex + 1} / ${visibleCount} (Toplam ${totalCount})`;
-        }
-      }
+      const statusText = (visibleCount === totalCount)
+        ? `${currentIndex + 1} / ${totalCount}`
+        : `${currentIndex + 1} / ${visibleCount} (Toplam ${totalCount})`;
+      statusElements.forEach(el => { el.textContent = statusText; });
 
       // Update aria / inert / is-current attributes
       allSlides.forEach(slide => {
@@ -4988,21 +5198,48 @@ Kurban olduğum Hz. Muhammed (s.a.v) Efendimiz canını teslim ederken şöyle d
       allSlides.forEach(slide => slideResizeObserver.observe(slide));
     }
 
-    // Print overrides: ensure ResizeObserver does not pin print height
+    // Print overrides: ensure ResizeObserver does not pin print height and all TOC links are visible
+    let closedTocChaptersBeforePrint = [];
     window.addEventListener('beforeprint', () => {
       readerViewport.style.height = '';
       allSlides.forEach(slide => {
         slide.removeAttribute('inert');
         slide.removeAttribute('aria-hidden');
       });
+      closedTocChaptersBeforePrint = [];
+      document.querySelectorAll('.toc-section details.toc-chapter').forEach(details => {
+        if (!details.open) {
+          closedTocChaptersBeforePrint.push(details);
+          details.open = true;
+        }
+      });
     });
 
     window.addEventListener('afterprint', () => {
+      closedTocChaptersBeforePrint.forEach(details => {
+        details.open = false;
+      });
+      closedTocChaptersBeforePrint = [];
       updateViewportHeight();
       updateReaderUI();
     });
 
-    // Reader control buttons
+    // Scroll reader to start under sticky header
+    function scrollReaderToTop(smooth = true) {
+      if (!postReader) return;
+      updateTopBarHeight();
+      const topBarHeight = getTopBarHeight();
+      const readerRect = postReader.getBoundingClientRect();
+      const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+      const targetY = scrollY + readerRect.top - topBarHeight - 12;
+      const behavior = (smooth && !prefersReducedMotion()) ? 'smooth' : 'auto';
+      window.scrollTo({
+        top: Math.max(0, targetY),
+        behavior: behavior
+      });
+    }
+
+    // Reader control buttons (top bar)
     if (previousPost) {
       previousPost.addEventListener('click', () => {
         if (currentIndex > 0) {
@@ -5015,6 +5252,25 @@ Kurban olduğum Hz. Muhammed (s.a.v) Efendimiz canını teslim ederken şöyle d
       nextPost.addEventListener('click', () => {
         if (currentIndex < visibleSlides.length - 1) {
           goToSlide(currentIndex + 1, true);
+        }
+      });
+    }
+
+    // Reader control buttons (bottom bar)
+    if (previousPostBottom) {
+      previousPostBottom.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          goToSlide(currentIndex - 1, true);
+          scrollReaderToTop(true);
+        }
+      });
+    }
+
+    if (nextPostBottom) {
+      nextPostBottom.addEventListener('click', () => {
+        if (currentIndex < visibleSlides.length - 1) {
+          goToSlide(currentIndex + 1, true);
+          scrollReaderToTop(true);
         }
       });
     }
@@ -5124,18 +5380,7 @@ Kurban olduğum Hz. Muhammed (s.a.v) Efendimiz canını teslim ederken şöyle d
          if (targetSlideIndex !== -1) {
            // Select target slide BEFORE vertical scrolling
            goToSlide(targetSlideIndex, false);
-
-           updateTopBarHeight();
-           const topBarHeight = getTopBarHeight();
-           const readerRect = postReader.getBoundingClientRect();
-           const scrollY = window.pageYOffset || document.documentElement.scrollTop;
-           const targetY = scrollY + readerRect.top - topBarHeight - 12;
-
-           const behavior = (smooth && !prefersReducedMotion()) ? 'smooth' : 'auto';
-           window.scrollTo({
-             top: Math.max(0, targetY),
-             behavior: behavior
-           });
+          scrollReaderToTop(smooth);
          }
        } else {
          updateTopBarHeight();
