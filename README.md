@@ -1,8 +1,10 @@
-# 📖 Gönülden Nağmeler — Nur Kendir
+# 📖 Nurdan Nağmeler — Nur Kendir
 
 > *"Sessizlikte Gizlenen Asalet, Kırık Kalpler ve Tevekkül Durağı"*
 
 Bu proje, **Nur Kendir**'in ([@hafsa_ennur38](https://www.instagram.com/hafsa_ennur38/)) Instagram hesabında paylaştığı 95 özgün görsel ve edebi metnin derlendiği, modern tipografi ve geleneksel kitap estetiği ile tasarlanmış dijital kitap ve web sitesidir.
+
+Site adı **Nurdan Nağmeler** olarak güncellendi; sekme başlığı, kapak, üst marka ve paylaşım metadatası bu adı kullanır. Gönderilerin özgün metinleri ve “Gönülden Nağmeler” radyo programı/bölüm adı korunmuştur. GitHub deposunun ve mevcut dağıtımın adresi değiştirilmemiştir.
 
 ---
 
