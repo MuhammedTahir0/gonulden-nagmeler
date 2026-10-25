@@ -4,13 +4,13 @@
 
 Bu proje, **Nur Kendir**'in ([@hafsa_ennur38](https://www.instagram.com/hafsa_ennur38/)) Instagram hesabında paylaştığı 95 özgün görsel ve edebi metnin derlendiği, modern tipografi ve geleneksel kitap estetiği ile tasarlanmış dijital kitap ve web sitesidir.
 
-Site adı **Nurdan Nağmeler** olarak güncellendi; sekme başlığı, kapak, üst marka ve paylaşım metadatası bu adı kullanır. Gönderilerin özgün metinleri ve “Gönülden Nağmeler” radyo programı/bölüm adı korunmuştur. GitHub deposunun ve mevcut dağıtımın adresi değiştirilmemiştir.
+Site adı **Nurdan Nağmeler** olarak güncellendi; sekme başlığı, kapak, üst marka ve paylaşım metadatası bu adı kullanır. Sitede hashtagler kaldırılmış, bunların dışındaki yazı metinleri ve “Gönülden Nağmeler” radyo programı/bölüm adı korunmuştur. GitHub deposunun ve mevcut dağıtımın adresi değiştirilmemiştir.
 
 ---
 
 ## ✨ Özellikler
 
-- 📜 **95 Bölümlük Tam Arşiv:** Her gönderinin hem ana görsel aforizması hem de alt tefekkür metni eksiksiz yer alır.
+- 📜 **95 Gönderilik Derleme:** Her gönderinin görsel sözü ve varsa açıklaması, hashtaglerden arındırılmış olarak sunulur. Kaynak Markdown arşivleri özgün haliyle saklanır.
 - **Yatay Gönderi Okuyucu:** Gönderiler tek kart olarak açılır. Telefonda sağa/sola kaydırın; bilgisayarda okuyucu odaktayken yön tuşlarını kullanın. Önceki / sayaç / Sonraki çubuğu hem gönderinin üstünde hem altında bulunur ve birlikte güncellenir. Alt çubuktan geçişte yeni gönderinin başına dönülür; uzun yazılar dikey okunmaya devam eder.
 - 🔍 **Canlı Arama & Filtreleme:** Arama çubuğu üzerinden başlık ve metinler içinde anında arama yapılabilir.
 - 📊 **Okuma İlerleme Çubuğu:** Sayfayı kaydırdıkça okuma durumunu gösteren zarif gösterge.
@@ -24,6 +24,12 @@ Site adı **Nurdan Nağmeler** olarak güncellendi; sekme başlığı, kapak, ü
 - 🖨️ **Baskı & PDF Modu:** Tek tuşla temiz, sayfa numaralı ve kitap formatında PDF çıktısı alma desteği.
 - 📱 **Duyarlı Tasarım:** Telefonlarda uzun metin ve hashtag satırları taşmadan kırılır; dar ekranlarda kart başlıkları ve bağlantılar alt alta yerleşir. Üst menü iki satıra iner, dokunmatik kontroller en az 44 px alana sahiptir.
 - ⚡ **Sıfır Bağımlılık:** Hızlı yüklenen, harici çerçeve (framework) gerektirmeyen saf HTML5, CSS3 ve modern JavaScript.
+
+### Hashtag temizliği — 2026-10-26
+
+- Sitedeki gönderi açıklamalarından 563 hashtag kaldırıldı. Yalnızca hashtag içeren 10 açıklama kutusu boş başlık bırakmamak için kaldırıldı; bu gönderilerin sözleri ve kartları korunur.
+- Temizlik kaynak HTML üzerinde yapıldı; CSS renkleri, gönderi numaraları, fihrist bağlantıları ve HTML karakter referansları değiştirilmedi. Hashtagler aramada ve yazdırma görünümünde de yer almaz.
+- OMP Gemini 3.8 Flash/high gerçek Chromium kabulünde 95 kart, 95 fihrist bağlantısı, altı bölüm ve sıfır kalan hashtag doğrulandı. Normal arama, ileri/geri geçiş, çift sayaç, 375 px yerleşim ve yazdırma medyası kontrol edildi.
 
 ### Alt gezinme çubuğu ve açılır-kapanır bölümler — 2026-10-25
 
