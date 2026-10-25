@@ -19,8 +19,16 @@ Bu proje, **Nur Kendir**'in ([@hafsa_ennur38](https://www.instagram.com/hafsa_en
   5. *Zaman, Gençlik ve Ahir Zaman (Dünyanın Faniliği)*
   6. *Kudüs ve Ümmet Bilinci (Gazze, Diriliş ve Onur)*
 - 🖨️ **Baskı & PDF Modu:** Tek tuşla temiz, sayfa numaralı ve kitap formatında PDF çıktısı alma desteği.
-- 📱 **Tam Responsive Tasarım:** Masaüstü, tablet ve mobil cihazlara tam uyumlu estetik görünüm.
+- 📱 **Duyarlı Tasarım:** Telefonlarda uzun metin ve hashtag satırları taşmadan kırılır; dar ekranlarda kart başlıkları ve bağlantılar alt alta yerleşir. Üst menü iki satıra iner, dokunmatik kontroller en az 44 px alana sahiptir.
 - ⚡ **Sıfır Bağımlılık:** Hızlı yüklenen, harici çerçeve (framework) gerektirmeyen saf HTML5, CSS3 ve modern JavaScript.
+
+### Mobil uyumluluk düzeltmesi — 2026-10-25
+
+- Uzun ve kesintisiz hashtaglerin 320–430 px ekranlarda sayfayı yaklaşık 709 px'e genişletmesi giderildi; yatay taşma gizlenmedi, metin sarmalama düzeltildi.
+- Kapak, fihrist, yazı kartları ve sonsöz için mobil boşluklar ve yazı boyutları düzenlendi. Yapışkan üst menünün fihrist/yazı başlıklarını örtmemesi için dinamik kaydırma mesafesi eklendi.
+- OMP Gemini 3.8 Flash/high alt ajanıyla gerçek Chromium'da 320, 375, 390, 430, 768, 1024, 1440 px ve 812×375 yatay görünüm kontrol edildi; belge ve metinlerde yatay taşma görülmedi.
+- Arama/eşleşmeyen arama/temizleme, fihrist ve doğrudan yazı bağlantısı, yukarı çık ve yazdırma medyası kontrol edildi. Orijinal dosyayla karşılaştırmada 95 yazının kimlikleri ve metinleri değişmedi.
+- Bu kabul tarayıcı cihaz emülasyonudur; fiziksel telefon ve Safari üzerinde test yapılmadı.
 
 ---
 

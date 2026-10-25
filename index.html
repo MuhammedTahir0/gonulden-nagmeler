@@ -123,6 +123,7 @@
     margin-bottom: 15px;
     line-height: 1.2;
     text-transform: uppercase;
+    overflow-wrap: break-word;
   }
 
   .cover-subtitle {
@@ -272,6 +273,8 @@
     color: var(--text-secondary);
     text-decoration: none;
     transition: color 0.2s;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .toc-links a:hover {
@@ -335,6 +338,8 @@
     box-shadow: var(--shadow-soft);
     position: relative;
     page-break-inside: avoid;
+    min-width: 0;
+    overflow-wrap: break-word;
   }
 
   .entry-header {
@@ -361,6 +366,9 @@
     color: var(--accent-burgundy);
     flex-grow: 1;
     margin-left: 15px;
+    min-width: 0;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   /* Visual Quote / Core Inscription */
@@ -393,6 +401,8 @@
     color: var(--text-primary);
     line-height: 1.7;
     white-space: pre-line;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   /* Reflection (Caption) */
@@ -420,6 +430,8 @@
     line-height: 1.8;
     white-space: pre-line;
     text-align: justify;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 
   .entry-footer {
@@ -498,6 +510,477 @@
     transition: width 0.1s ease-out;
   }
 
+  /* Responsive Content Styles (Screen Only) */
+  @media screen and (max-width: 768px) {
+    /* Restored base content responsive rules */
+    .container {
+      padding: 20px 14px;
+    }
+
+    .entry-card {
+      padding: 24px 18px;
+      margin-bottom: 25px;
+    }
+
+    .cover-title {
+      font-size: 34px;
+      letter-spacing: 2px;
+    }
+
+    /* Cover Page */
+    .book-cover {
+      min-height: 80vh;
+      padding: 40px 20px;
+      margin: 15px 0 40px 0;
+    }
+
+    .cover-bismillah {
+      font-size: 22px;
+      margin-bottom: 20px;
+      letter-spacing: 2px;
+    }
+
+    .cover-subtitle {
+      font-size: 18px;
+      margin-bottom: 28px;
+    }
+
+    .cover-author {
+      font-size: 20px;
+    }
+
+    .cover-meta {
+      margin-top: 35px;
+    }
+
+    /* Epigraph */
+    .epigraph-section {
+      padding: 50px 20px;
+    }
+
+    .epigraph-box {
+      padding: 20px 15px;
+    }
+
+    .epigraph-verse {
+      font-size: 21px;
+      line-height: 1.5;
+    }
+
+    /* Preface */
+    .section-preface {
+      padding: 30px 22px;
+      margin-bottom: 40px;
+    }
+
+    .section-title {
+      font-size: 24px;
+      margin-bottom: 18px;
+    }
+
+    .preface-text {
+      font-size: 18px;
+      text-align: left;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+
+    /* Table of Contents */
+    .toc-section {
+      padding: 30px 20px;
+      margin-bottom: 40px;
+    }
+
+    .toc-chapter {
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+    }
+
+    .toc-chapter-header {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 4px 10px;
+      font-size: 16px;
+    }
+
+    .toc-chapter-header span {
+      min-width: 0;
+      overflow-wrap: break-word;
+    }
+
+    .toc-links {
+      padding-left: 16px;
+      font-size: 15px;
+    }
+
+    .toc-links li {
+      margin-bottom: 2px;
+    }
+
+    .toc-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 4px 0;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    /* Chapter Header */
+    .chapter-divider {
+      padding: 45px 15px 25px 15px;
+      margin-top: 30px;
+    }
+
+    .chapter-main-title {
+      font-size: 26px;
+      letter-spacing: 1px;
+    }
+
+    .chapter-sub {
+      font-size: 17px;
+      margin-bottom: 15px;
+    }
+
+    .chapter-intro-box {
+      padding: 16px 14px;
+      font-size: 16px;
+    }
+
+    /* Entry Card, Quote & Reflection */
+    .entry-header {
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      align-items: baseline;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+    }
+
+    .entry-title {
+      font-size: 20px;
+      min-width: 0;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .quote-box {
+      padding: 18px 16px;
+      margin-bottom: 18px;
+    }
+
+    .quote-content {
+      font-size: 18px;
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .reflection-content {
+      font-size: 16px;
+      line-height: 1.7;
+      text-align: left;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      overflow-wrap: anywhere;
+      word-break: break-word;
+    }
+
+    .entry-footer {
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin-top: 20px;
+      padding-top: 12px;
+    }
+
+    .entry-footer a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      padding: 4px 0;
+      overflow-wrap: anywhere;
+    }
+
+    /* Epilogue */
+    .epilogue-section {
+      padding: 35px 22px;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .epilogue-content {
+      font-size: 17px;
+      line-height: 1.7;
+      text-align: left;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .container {
+      padding: 14px 10px;
+    }
+
+    /* Cover Page */
+    .book-cover {
+      min-height: auto;
+      padding: 28px 14px;
+      margin: 10px 0 25px 0;
+      border-width: 2px;
+    }
+
+    .cover-bismillah {
+      font-size: 18px;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .cover-title {
+      font-size: 25px;
+      letter-spacing: 1px;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+
+    .cover-subtitle {
+      font-size: 15px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .cover-ornament {
+      font-size: 22px;
+      margin: 12px 0;
+    }
+
+    .cover-author {
+      font-size: 18px;
+      letter-spacing: 1px;
+    }
+
+    .cover-author-title {
+      font-size: 13px;
+    }
+
+    .cover-meta {
+      margin-top: 25px;
+      font-size: 12px;
+    }
+
+    /* Epigraph */
+    .epigraph-section {
+      padding: 30px 10px;
+    }
+
+    .epigraph-box {
+      padding: 16px 8px;
+    }
+
+    .epigraph-verse {
+      font-size: 17px;
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    .epigraph-source {
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* Preface */
+    .section-preface {
+      padding: 20px 14px;
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-size: 19px;
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+    }
+
+    .preface-text {
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .preface-text p {
+      margin-bottom: 12px;
+      text-indent: 1.2em;
+    }
+
+    /* Table of Contents */
+    .toc-section {
+      padding: 20px 14px;
+      margin-bottom: 25px;
+    }
+
+    .toc-chapter {
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+    }
+
+    .toc-chapter-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 2px;
+      font-size: 15px;
+    }
+
+    .toc-sub {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .toc-links {
+      padding-left: 12px;
+      font-size: 14px;
+    }
+
+    /* Chapter Header */
+    .chapter-divider {
+      padding: 30px 10px 16px 10px;
+      margin-top: 20px;
+    }
+
+    .chapter-badge {
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 6px;
+    }
+
+    .chapter-main-title {
+      font-size: 20px;
+      letter-spacing: 0.5px;
+      line-height: 1.25;
+    }
+
+    .chapter-sub {
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .chapter-intro-box {
+      padding: 12px 10px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    /* Entry Card */
+    .entry-card {
+      padding: 16px 12px;
+      margin-bottom: 18px;
+    }
+
+    .entry-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+    }
+
+    .entry-num {
+      font-size: 12px;
+    }
+
+    .entry-title {
+      font-size: 17px;
+      margin-left: 0;
+      width: 100%;
+      line-height: 1.35;
+    }
+
+    .quote-box {
+      padding: 12px 10px;
+      margin-bottom: 12px;
+      border-left-width: 3px;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .quote-label {
+      font-size: 10px;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .quote-content {
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .reflection-box {
+      margin-top: 12px;
+      padding-top: 8px;
+    }
+
+    .reflection-label {
+      font-size: 10px;
+      letter-spacing: 1px;
+      margin-bottom: 4px;
+    }
+
+    .reflection-content {
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+
+    .entry-footer {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+      margin-top: 14px;
+      padding-top: 8px;
+      font-size: 12px;
+    }
+
+    /* Epilogue */
+    .epilogue-section {
+      padding: 22px 14px;
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
+
+    .epilogue-content {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .signature {
+      font-size: 17px;
+      margin-top: 22px;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    .container {
+      padding: 12px 8px;
+    }
+
+    .cover-title {
+      font-size: 22px;
+      letter-spacing: 0.5px;
+    }
+
+    .entry-card {
+      padding: 14px 10px;
+    }
+
+    .entry-title {
+      font-size: 16px;
+    }
+
+    .quote-content {
+      font-size: 14.5px;
+    }
+
+    .reflection-content {
+      font-size: 14px;
+    }
+  }
+
   /* Top Bar Enhancements */
   .top-bar {
     position: sticky;
@@ -513,6 +996,12 @@
     gap: 16px;
     z-index: 1000;
     box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+  }
+
+  @media screen {
+    html {
+      scroll-padding-top: calc(var(--header-offset, var(--top-bar-height, 108px)) + 12px);
+    }
   }
 
   .top-bar-left {
@@ -699,34 +1188,131 @@
     transform: translateY(-3px);
   }
 
-  @media (max-width: 768px) {
+  @media screen and (max-width: 1024px) {
     .top-bar {
-      flex-wrap: wrap;
-      padding: 10px 14px;
-      gap: 10px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 6px 10px;
+      padding: 8px 12px;
     }
     .top-bar-left {
-      width: 100%;
-      justify-content: space-between;
+      grid-column: 1;
+      grid-row: 1;
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      flex-wrap: nowrap;
+      gap: 8px;
+    }
+    .top-bar-title {
+      font-size: 13px;
+      letter-spacing: 1px;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex-shrink: 1;
+      line-height: 1.4;
+    }
+    .badge-count {
+      white-space: nowrap;
+      flex-shrink: 0;
+      line-height: 1.4;
     }
     .top-bar-center {
-      order: 3;
-      max-width: 100%;
-      width: 100%;
+      grid-column: 1 / -1;
+      grid-row: 2;
+      min-width: 0;
+      max-width: none;
     }
     .top-bar-right {
-      order: 2;
-      width: 100%;
+      grid-column: 2;
+      grid-row: 1;
+      display: flex;
+      align-items: center;
       justify-content: flex-end;
+      gap: 6px;
     }
-    .container {
-      padding: 20px 14px;
+    .btn-toc,
+    .btn-print {
+      min-width: 44px;
+      min-height: 44px;
+      justify-content: center;
+      padding: 6px 10px;
+      line-height: 1.4;
+      flex-shrink: 0;
     }
-    .entry-card {
-      padding: 24px 18px;
+    .btn-text-extra {
+      display: none;
     }
-    .cover-title {
-      font-size: 34px;
+    .search-input {
+      min-width: 0;
+      min-height: 44px;
+      padding-right: 44px;
+      font-size: 16px;
+    }
+    .search-clear {
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
+      padding: 0;
+      line-height: 44px;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .top-bar {
+      gap: 6px 8px;
+      padding: 6px 8px;
+    }
+    .top-bar-left {
+      gap: 6px;
+    }
+    .top-bar-title {
+      font-size: 12px;
+      letter-spacing: 0.5px;
+    }
+    .badge-count {
+      font-size: 10px;
+      padding: 2px 6px;
+    }
+    .btn-toc,
+    .btn-print {
+      font-size: 11px;
+      letter-spacing: 0;
+      padding: 6px 8px;
+      gap: 3px;
+    }
+    .back-to-top {
+      bottom: 16px;
+      right: 16px;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    .top-bar {
+      gap: 4px 6px;
+      padding: 6px;
+    }
+    .top-bar-title {
+      font-size: 11px;
+      letter-spacing: 0.2px;
+    }
+    .badge-count {
+      font-size: 9.5px;
+      padding: 1px 5px;
+    }
+    .btn-toc,
+    .btn-print {
+      padding: 6px;
+      font-size: 15px;
+    }
+    .btn-toc .btn-text,
+    .btn-print .btn-text {
+      display: none;
     }
   }
 
@@ -749,19 +1335,19 @@
 
 <header class="top-bar">
   <div class="top-bar-left">
-    <a href="#" class="top-bar-title">GÖNÜLDEN NAĞMELER</a>
+    <a href="#" class="top-bar-title" title="Başa Dön">GÖNÜLDEN NAĞMELER</a>
     <span class="badge-count" id="countBadge">95 Yazı</span>
   </div>
   <div class="top-bar-center">
     <div class="search-wrapper">
       <span class="search-icon">🔍</span>
       <input type="text" id="searchInput" class="search-input" placeholder="Yazılarda veya başlıklarda ara..." aria-label="Yazılarda ara">
-      <button id="clearSearch" class="search-clear" title="Temizle">✕</button>
+      <button id="clearSearch" class="search-clear" type="button" title="Temizle" aria-label="Aramayı temizle">✕</button>
     </div>
   </div>
   <div class="top-bar-right">
-    <a href="#fihrist" class="btn-toc">📜 FİHRİST</a>
-    <button class="btn-print" onclick="window.print()" title="PDF Olarak Yazdır / Kaydet">🖨️ PDF YAZDIR</button>
+    <a href="#fihrist" class="btn-toc" title="Fihrist / İçindekiler" aria-label="Fihrist"><span class="btn-icon" aria-hidden="true">📜</span><span class="btn-text">FİHRİST</span></a>
+    <button class="btn-print" onclick="window.print()" title="PDF Olarak Yazdır / Kaydet" aria-label="PDF Olarak Yazdır"><span class="btn-icon" aria-hidden="true">🖨️</span><span class="btn-text">PDF<span class="btn-text-extra"> YAZDIR</span></span></button>
   </div>
 </header>
 
@@ -3770,6 +4356,48 @@ Kurban olduğum Hz. Muhammed (s.a.v) Efendimiz canını teslim ederken şöyle d
 <button class="back-to-top" id="backToTop" title="Yukarı Çık" aria-label="Yukarı Çık">↑</button>
 
 <script>
+  // Keep anchor destinations clear of the sticky toolbar at every text size.
+  const topBar = document.querySelector('.top-bar');
+  const updateTopBarHeight = () => {
+    if (!topBar) return;
+    const height = Math.ceil(topBar.getBoundingClientRect().height);
+    const heightPx = `${height}px`;
+    document.documentElement.style.setProperty('--top-bar-height', heightPx);
+    document.documentElement.style.setProperty('--header-offset', heightPx);
+  };
+  updateTopBarHeight();
+  if ('ResizeObserver' in window && topBar) {
+    new ResizeObserver(updateTopBarHeight).observe(topBar);
+  }
+  window.addEventListener('resize', updateTopBarHeight);
+
+  const scrollToHashTarget = () => {
+    if (!window.location.hash || window.location.hash.length <= 1) return;
+    try {
+      const target = document.querySelector(window.location.hash);
+      if (target) {
+        updateTopBarHeight();
+        target.scrollIntoView({ behavior: 'auto' });
+      }
+    } catch (e) {}
+  };
+
+  window.addEventListener('load', () => {
+    updateTopBarHeight();
+    scrollToHashTarget();
+  });
+
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(() => {
+      updateTopBarHeight();
+      scrollToHashTarget();
+    });
+  }
+
+  window.addEventListener('hashchange', () => {
+    updateTopBarHeight();
+    scrollToHashTarget();
+  });
   // Reading Progress Bar
   window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
