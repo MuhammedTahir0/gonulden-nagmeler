@@ -1316,6 +1316,227 @@
     }
   }
 
+  /* Post Reader Styles */
+  .post-reader {
+    margin-top: 20px;
+    margin-bottom: 50px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .post-reader[hidden] {
+    display: none !important;
+  }
+
+  .reader-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    padding: 10px 16px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    box-shadow: var(--shadow-soft);
+    box-sizing: border-box;
+  }
+
+  .reader-controls button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+    padding: 8px 18px;
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffffff;
+    background: var(--gold);
+    border: 1px solid var(--gold);
+    border-radius: 6px;
+    cursor: pointer;
+    touch-action: manipulation;
+    user-select: none;
+    flex-shrink: 0;
+    transition: background 0.2s ease, border-color 0.2s ease, transform 0.1s ease, opacity 0.2s ease;
+  }
+
+  .reader-controls button:hover:not(:disabled) {
+    background: var(--accent-burgundy);
+    border-color: var(--accent-burgundy);
+  }
+
+  .reader-controls button:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+
+  .reader-controls button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    background: #d5cec5;
+    border-color: #c4bbb0;
+    color: #7d756d;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .reader-controls button:focus-visible {
+    outline: 2px solid var(--accent-burgundy);
+    outline-offset: 2px;
+  }
+
+  .reader-controls p,
+  #readerStatus {
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--accent-burgundy);
+    text-align: center;
+    flex: 1 1 auto;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+    padding: 0 8px;
+  }
+
+  .reader-hint {
+    text-align: center;
+    font-family: 'EB Garamond', Georgia, serif;
+    font-style: italic;
+    font-size: 14.5px;
+    color: var(--text-muted);
+    margin: 0 0 16px 0;
+    user-select: none;
+  }
+
+  .reader-viewport {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    outline: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    transition: height 0.25s ease-out;
+  }
+
+  .reader-viewport::-webkit-scrollbar {
+    display: none;
+  }
+
+  .reader-viewport:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+  }
+
+  .reader-track {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    gap: 0;
+    box-sizing: border-box;
+  }
+
+  .reader-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+  }
+
+  .reader-slide[hidden] {
+    display: none !important;
+  }
+
+  /* Reset extraneous margins inside reader slide so active measured slide height is correct */
+  .reader-slide .chapter-divider {
+    margin-top: 0;
+    margin-bottom: 24px;
+    padding-top: 15px;
+    padding-bottom: 30px;
+  }
+
+  .reader-slide .entry-card {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  @media screen and (max-width: 480px) {
+    .reader-controls {
+      padding: 8px 10px;
+      gap: 8px;
+    }
+    .reader-controls button {
+      min-height: 44px;
+      min-width: 44px;
+      padding: 8px 12px;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    .reader-controls p,
+    #readerStatus {
+      font-size: 13.5px;
+      padding: 0 4px;
+    }
+    .reader-hint {
+      font-size: 13.5px;
+      margin-bottom: 12px;
+    }
+    .reader-slide .chapter-divider {
+      padding-top: 10px;
+      padding-bottom: 20px;
+      margin-bottom: 16px;
+    }
+  }
+
+  @media screen and (max-width: 360px) {
+    .reader-controls {
+      padding: 6px 8px;
+      gap: 6px;
+    }
+    .reader-controls button {
+      min-height: 44px;
+      padding: 6px 10px;
+      font-size: 12px;
+    }
+    .reader-controls p,
+    #readerStatus {
+      font-size: 12.5px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reader-viewport {
+      scroll-behavior: auto !important;
+      transition: none !important;
+    }
+    .reader-controls button {
+      transition: none !important;
+    }
+  }
+
   /* Print Styles */
   @media print {
     .top-bar, .reading-progress-container, .back-to-top, #noResultsMessage { display: none !important; }
@@ -1324,6 +1545,58 @@
     .book-cover { min-height: 95vh; box-shadow: none; border-width: 2px; }
     .entry-card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; margin-bottom: 25pt; }
     .chapter-divider { page-break-before: always; }
+    /* Swipe Reader Print Overrides */
+    .reader-controls,
+    .reader-hint {
+      display: none !important;
+    }
+    .post-reader,
+    .post-reader[hidden] {
+      display: block !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .reader-viewport {
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+      display: block !important;
+      scroll-snap-type: none !important;
+    }
+    .reader-track {
+      display: block !important;
+      width: 100% !important;
+      transform: none !important;
+      gap: 0 !important;
+    }
+    .reader-slide,
+    .reader-slide[hidden],
+    .reader-slide[inert] {
+      display: block !important;
+      visibility: visible !important;
+      opacity: 1 !important;
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+      page-break-inside: auto !important;
+      break-inside: auto !important;
+      margin-bottom: 25pt !important;
+    }
+    .reader-slide .chapter-divider {
+      display: block !important;
+      page-break-before: always !important;
+      break-before: page !important;
+      margin-top: 30pt !important;
+      margin-bottom: 20pt !important;
+    }
+    .reader-slide .entry-card {
+      display: block !important;
+      box-shadow: none !important;
+      border: 1px solid #ccc !important;
+      page-break-inside: avoid !important;
+      break-inside: avoid !important;
+      margin-bottom: 25pt !important;
+    }
   }
 </style>
 </head>
@@ -1543,6 +1816,12 @@
       </ul>
     </div>
   </div>
+
+  <section id="post-reader" class="post-reader" hidden aria-label="Gönderiler">
+    <div class="reader-controls"><button id="previousPost" type="button" aria-label="Önceki gönderi">← Önceki</button><p id="readerStatus" role="status" aria-live="polite" aria-atomic="true"></p><button id="nextPost" type="button" aria-label="Sonraki gönderi">Sonraki →</button></div>
+    <p class="reader-hint">Gönderiler arasında sağa veya sola kaydırın.</p>
+    <div id="readerViewport" class="reader-viewport" tabindex="0" role="region" aria-label="Kaydırılabilir gönderiler"><div id="readerTrack" class="reader-track"></div></div>
+  </section>
   <!-- Chapters Start -->
 
   <!-- Chapter I -->
@@ -4365,39 +4644,20 @@ Kurban olduğum Hz. Muhammed (s.a.v) Efendimiz canını teslim ederken şöyle d
     document.documentElement.style.setProperty('--top-bar-height', heightPx);
     document.documentElement.style.setProperty('--header-offset', heightPx);
   };
+  const getTopBarHeight = () => {
+    if (!topBar) return 0;
+    return Math.ceil(topBar.getBoundingClientRect().height);
+  };
   updateTopBarHeight();
   if ('ResizeObserver' in window && topBar) {
     new ResizeObserver(updateTopBarHeight).observe(topBar);
   }
   window.addEventListener('resize', updateTopBarHeight);
 
-  const scrollToHashTarget = () => {
-    if (!window.location.hash || window.location.hash.length <= 1) return;
-    try {
-      const target = document.querySelector(window.location.hash);
-      if (target) {
-        updateTopBarHeight();
-        target.scrollIntoView({ behavior: 'auto' });
-      }
-    } catch (e) {}
+  const prefersReducedMotion = () => {
+    return window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   };
 
-  window.addEventListener('load', () => {
-    updateTopBarHeight();
-    scrollToHashTarget();
-  });
-
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(() => {
-      updateTopBarHeight();
-      scrollToHashTarget();
-    });
-  }
-
-  window.addEventListener('hashchange', () => {
-    updateTopBarHeight();
-    scrollToHashTarget();
-  });
   // Reading Progress Bar
   window.addEventListener('scroll', () => {
     const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -4415,63 +4675,541 @@ Kurban olduğum Hz. Muhammed (s.a.v) Efendimiz canını teslim ederken şöyle d
         btt.classList.remove('visible');
       }
     }
-  });
+  }, { passive: true });
 
   const btt = document.getElementById('backToTop');
   if (btt) {
     btt.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
     });
   }
 
-  // Live Search Filter
+  // Swipe Reader Setup & Progressive Enhancement
+  const postReader = document.getElementById('post-reader');
+  const readerViewport = document.getElementById('readerViewport');
+  const readerTrack = document.getElementById('readerTrack');
+  const previousPost = document.getElementById('previousPost');
+  const nextPost = document.getElementById('nextPost');
+  const readerStatus = document.getElementById('readerStatus');
+  const noResults = document.getElementById('noResultsMessage');
   const searchInput = document.getElementById('searchInput');
   const clearSearch = document.getElementById('clearSearch');
   const countBadge = document.getElementById('countBadge');
-  const cards = document.querySelectorAll('.entry-card');
-  const noResults = document.getElementById('noResultsMessage');
-  const totalCount = cards.length;
 
-  if (searchInput) {
-    searchInput.addEventListener('input', (e) => {
-      const query = e.target.value.trim().toLocaleLowerCase('tr');
-      if (query.length > 0) {
-        clearSearch.style.display = 'block';
-      } else {
-        clearSearch.style.display = 'none';
+  if (postReader && readerViewport && readerTrack) {
+    // Move existing noResults beside reader controls
+    if (noResults) {
+      postReader.insertBefore(noResults, readerViewport);
+      noResults.style.display = 'none';
+    }
+
+    // Capture chapter membership before moving nodes
+    const chapterMap = new Map();
+    const cardToChapter = new Map();
+    let currentChapterId = null;
+
+    const contentNodes = Array.from(document.querySelectorAll('.chapter-divider, .entry-card'));
+    const allSlides = [];
+
+    contentNodes.forEach(node => {
+      if (node.classList.contains('chapter-divider')) {
+        currentChapterId = node.id || ('bolum-' + (chapterMap.size + 1));
+        chapterMap.set(currentChapterId, {
+          divider: node,
+          cards: [],
+          firstCard: null
+        });
+      } else if (node.classList.contains('entry-card')) {
+        if (currentChapterId && chapterMap.has(currentChapterId)) {
+          const chData = chapterMap.get(currentChapterId);
+          chData.cards.push(node);
+          if (!chData.firstCard) {
+            chData.firstCard = node;
+          }
+          cardToChapter.set(node.id, currentChapterId);
+        }
+      }
+    });
+
+    // Move nodes into reader slides in thematic order
+    let pendingDivider = null;
+    contentNodes.forEach(node => {
+      if (node.classList.contains('chapter-divider')) {
+        pendingDivider = node;
+      } else if (node.classList.contains('entry-card')) {
+        const slide = document.createElement('div');
+        slide.className = 'reader-slide';
+        slide.setAttribute('role', 'group');
+        slide.setAttribute('aria-roledescription', 'gönderi');
+
+        const entryNumEl = node.querySelector('.entry-num');
+        const entryTitleEl = node.querySelector('.entry-title');
+        const slideLabel = [
+          entryNumEl ? entryNumEl.textContent.trim() : '',
+          entryTitleEl ? entryTitleEl.textContent.trim() : ''
+        ].filter(Boolean).join(' - ');
+        if (slideLabel) {
+          slide.setAttribute('aria-label', slideLabel);
+        }
+
+        if (pendingDivider) {
+          slide.appendChild(pendingDivider);
+          pendingDivider = null;
+        }
+        slide.appendChild(node);
+        readerTrack.appendChild(slide);
+        allSlides.push(slide);
+      }
+    });
+
+    const totalCount = allSlides.length;
+    let visibleSlides = allSlides.slice();
+    let currentIndex = 0;
+    let isProgrammaticScroll = false;
+    let programmaticScrollTimer = null;
+    let scrollRafId = null;
+    let scrollSettleTimer = null;
+
+    // Unhide post-reader now that slides are assembled
+    postReader.hidden = false;
+
+    // Viewport height adjustment to active slide (variable height support)
+    function updateViewportHeight() {
+      if (!readerViewport || visibleSlides.length === 0) return;
+      if (window.matchMedia && window.matchMedia('print').matches) {
+        readerViewport.style.height = '';
+        return;
+      }
+      const activeSlide = visibleSlides[currentIndex];
+      if (activeSlide) {
+        const height = activeSlide.offsetHeight;
+        if (height > 0) {
+          readerViewport.style.height = `${height}px`;
+        }
+      }
+    }
+
+    // UI state updater (buttons, aria, status, inert)
+    function updateReaderUI() {
+      const visibleCount = visibleSlides.length;
+      if (visibleCount === 0) {
+        if (previousPost) previousPost.disabled = true;
+        if (nextPost) nextPost.disabled = true;
+        if (readerStatus) readerStatus.textContent = '0 / 0';
+        return;
       }
 
-      let matches = 0;
-      cards.forEach(card => {
-        const cardText = card.textContent.toLocaleLowerCase('tr');
-        if (!query || cardText.includes(query)) {
-          card.style.display = '';
-          matches++;
+      // Boundary buttons: nonwrapping disabled
+      if (previousPost) previousPost.disabled = (currentIndex <= 0);
+      if (nextPost) nextPost.disabled = (currentIndex >= visibleCount - 1);
+
+      // Reader status
+      if (readerStatus) {
+        if (visibleCount === totalCount) {
+          readerStatus.textContent = `${currentIndex + 1} / ${totalCount}`;
         } else {
-          card.style.display = 'none';
+          readerStatus.textContent = `${currentIndex + 1} / ${visibleCount} (Toplam ${totalCount})`;
+        }
+      }
+
+      // Update aria / inert / is-current attributes
+      allSlides.forEach(slide => {
+        if (slide.hidden) {
+          slide.classList.remove('is-current');
+          slide.setAttribute('aria-hidden', 'true');
+          slide.setAttribute('inert', '');
+          return;
+        }
+        const isCurrent = (slide === visibleSlides[currentIndex]);
+        if (isCurrent) {
+          slide.classList.add('is-current');
+          slide.removeAttribute('inert');
+          slide.setAttribute('aria-hidden', 'false');
+        } else {
+          slide.classList.remove('is-current');
+          slide.setAttribute('inert', '');
+          slide.setAttribute('aria-hidden', 'true');
+        }
+      });
+    }
+
+    // Programmatic slide navigation
+    function goToSlide(index, smooth = true) {
+      if (visibleSlides.length === 0) return;
+      const clampedIndex = Math.max(0, Math.min(index, visibleSlides.length - 1));
+      currentIndex = clampedIndex;
+      const activeSlide = visibleSlides[currentIndex];
+
+      updateViewportHeight();
+      updateReaderUI();
+
+      const shouldSmooth = smooth && !prefersReducedMotion();
+
+      isProgrammaticScroll = true;
+      clearTimeout(programmaticScrollTimer);
+
+      if (shouldSmooth) {
+        readerViewport.scrollTo({
+          left: activeSlide.offsetLeft,
+          behavior: 'smooth'
+        });
+        const distance = Math.abs(readerViewport.scrollLeft - activeSlide.offsetLeft);
+        const timerDelay = Math.max(600, Math.min(1500, Math.round(distance * 0.9)));
+        programmaticScrollTimer = setTimeout(() => {
+          isProgrammaticScroll = false;
+          updateViewportHeight();
+        }, timerDelay);
+      } else {
+        const prevBehavior = readerViewport.style.scrollBehavior;
+        readerViewport.style.scrollBehavior = 'auto';
+        readerViewport.scrollTo({
+          left: activeSlide.offsetLeft,
+          behavior: 'instant'
+        });
+        readerViewport.style.scrollBehavior = prevBehavior;
+        programmaticScrollTimer = setTimeout(() => {
+          isProgrammaticScroll = false;
+          updateViewportHeight();
+        }, 50);
+      }
+    }
+
+    // Settle handler for touch swipes and scroll events
+    function onScrollSettled() {
+      if (isProgrammaticScroll) {
+        if (visibleSlides.length > 0 && visibleSlides[currentIndex]) {
+          const targetLeft = visibleSlides[currentIndex].offsetLeft;
+          if (Math.abs(readerViewport.scrollLeft - targetLeft) > 1) {
+            readerViewport.scrollTo({ left: targetLeft, behavior: 'auto' });
+          }
+          isProgrammaticScroll = false;
+          updateViewportHeight();
+          updateReaderUI();
+        }
+        return;
+      }
+      if (visibleSlides.length === 0) return;
+      const scrollLeft = readerViewport.scrollLeft;
+      let closestIndex = 0;
+      let minDiff = Infinity;
+      for (let i = 0; i < visibleSlides.length; i++) {
+        const diff = Math.abs(visibleSlides[i].offsetLeft - scrollLeft);
+        if (diff < minDiff) {
+          minDiff = diff;
+          closestIndex = i;
+        }
+      }
+      currentIndex = closestIndex;
+      updateViewportHeight();
+      updateReaderUI();
+    }
+
+    // Native touch scroll observation
+    readerViewport.addEventListener('scroll', () => {
+      if (isProgrammaticScroll) {
+        if (visibleSlides.length > 0 && visibleSlides[currentIndex]) {
+          const targetLeft = visibleSlides[currentIndex].offsetLeft;
+          if (Math.abs(readerViewport.scrollLeft - targetLeft) <= 1) {
+            clearTimeout(programmaticScrollTimer);
+            isProgrammaticScroll = false;
+            updateViewportHeight();
+          }
+        }
+        clearTimeout(scrollSettleTimer);
+        scrollSettleTimer = setTimeout(onScrollSettled, 120);
+        return;
+      }
+      if (visibleSlides.length === 0) return;
+
+      if (scrollRafId) cancelAnimationFrame(scrollRafId);
+      scrollRafId = requestAnimationFrame(() => {
+        const viewportWidth = readerViewport.clientWidth;
+        if (viewportWidth <= 0) return;
+        const center = readerViewport.scrollLeft + (viewportWidth / 2);
+
+        let closestIndex = currentIndex;
+        let minDiff = Infinity;
+        for (let i = 0; i < visibleSlides.length; i++) {
+          const slide = visibleSlides[i];
+          const slideCenter = slide.offsetLeft + (slide.offsetWidth / 2);
+          const diff = Math.abs(slideCenter - center);
+          if (diff < minDiff) {
+            minDiff = diff;
+            closestIndex = i;
+          }
+        }
+
+        if (closestIndex !== currentIndex) {
+          currentIndex = closestIndex;
+          updateViewportHeight();
+          updateReaderUI();
         }
       });
 
-      if (noResults) {
-        noResults.style.display = (matches === 0 && query.length > 0) ? 'block' : 'none';
-      }
+      clearTimeout(scrollSettleTimer);
+      scrollSettleTimer = setTimeout(onScrollSettled, 120);
+    }, { passive: true });
 
-      if (query.length > 0) {
-        countBadge.textContent = `${matches} / ${totalCount} Yazı`;
-      } else {
-        countBadge.textContent = `${totalCount} Yazı`;
+    if ('onscrollend' in window) {
+      readerViewport.addEventListener('scrollend', onScrollSettled, { passive: true });
+    }
+
+    // Window resize handler: align scrollLeft immediately to prevent wrongindex
+    window.addEventListener('resize', () => {
+      updateTopBarHeight();
+      if (visibleSlides.length > 0 && visibleSlides[currentIndex]) {
+        const prevBehavior = readerViewport.style.scrollBehavior;
+        readerViewport.style.scrollBehavior = 'auto';
+        readerViewport.scrollTo({
+          left: visibleSlides[currentIndex].offsetLeft,
+          behavior: 'instant'
+        });
+        readerViewport.style.scrollBehavior = prevBehavior;
+        updateViewportHeight();
       }
     });
 
-    clearSearch.addEventListener('click', () => {
-      searchInput.value = '';
-      clearSearch.style.display = 'none';
-      cards.forEach(card => card.style.display = '');
-      if (noResults) noResults.style.display = 'none';
-      countBadge.textContent = `${totalCount} Yazı`;
-      searchInput.focus();
+    // ResizeObserver on slides: update height when active slide content resizes
+    if ('ResizeObserver' in window) {
+      const slideResizeObserver = new ResizeObserver((entries) => {
+        if (window.matchMedia && window.matchMedia('print').matches) {
+          readerViewport.style.height = '';
+          return;
+        }
+        const activeSlide = visibleSlides[currentIndex];
+        if (!activeSlide) return;
+        for (const entry of entries) {
+          if (entry.target === activeSlide) {
+            updateViewportHeight();
+            break;
+          }
+        }
+      });
+      allSlides.forEach(slide => slideResizeObserver.observe(slide));
+    }
+
+    // Print overrides: ensure ResizeObserver does not pin print height
+    window.addEventListener('beforeprint', () => {
+      readerViewport.style.height = '';
+      allSlides.forEach(slide => {
+        slide.removeAttribute('inert');
+        slide.removeAttribute('aria-hidden');
+      });
     });
-  }
+
+    window.addEventListener('afterprint', () => {
+      updateViewportHeight();
+      updateReaderUI();
+    });
+
+    // Reader control buttons
+    if (previousPost) {
+      previousPost.addEventListener('click', () => {
+        if (currentIndex > 0) {
+          goToSlide(currentIndex - 1, true);
+        }
+      });
+    }
+
+    if (nextPost) {
+      nextPost.addEventListener('click', () => {
+        if (currentIndex < visibleSlides.length - 1) {
+          goToSlide(currentIndex + 1, true);
+        }
+      });
+    }
+
+    // Local keyboard navigation limited to reader focus (does not hijack typing)
+    postReader.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) {
+        return;
+      }
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        if (currentIndex > 0) goToSlide(currentIndex - 1, true);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        if (currentIndex < visibleSlides.length - 1) goToSlide(currentIndex + 1, true);
+      }
+    });
+
+    // Live search & slide filtering
+    const filterSlides = (query) => {
+      const activeSlideBeforeFilter = visibleSlides[currentIndex] || null;
+      let matches = 0;
+
+      allSlides.forEach(slide => {
+        const text = slide.textContent.toLocaleLowerCase('tr');
+        const isMatch = (!query || text.includes(query));
+        if (isMatch) {
+          slide.hidden = false;
+          slide.style.display = '';
+          matches++;
+        } else {
+          slide.hidden = true;
+          slide.style.display = 'none';
+        }
+      });
+
+      visibleSlides = allSlides.filter(s => !s.hidden);
+
+       if (query.length > 0) {
+         if (clearSearch) clearSearch.style.display = 'block';
+         if (countBadge) countBadge.textContent = `${matches} / ${totalCount} Yazı`;
+       } else {
+         if (clearSearch) clearSearch.style.display = 'none';
+         if (countBadge) countBadge.textContent = `${totalCount} Yazı`;
+       }
+
+       if (matches === 0) {
+         if (noResults) noResults.style.display = 'block';
+         if (readerViewport) readerViewport.style.display = 'none';
+         currentIndex = 0;
+         updateReaderUI();
+       } else {
+         if (noResults) noResults.style.display = 'none';
+         if (readerViewport) readerViewport.style.display = '';
+
+         let targetIndex = visibleSlides.indexOf(activeSlideBeforeFilter);
+         if (targetIndex === -1) {
+           targetIndex = 0;
+         }
+         goToSlide(targetIndex, false);
+       }
+     };
+
+     if (searchInput) {
+       searchInput.addEventListener('input', (e) => {
+         const query = e.target.value.trim().toLocaleLowerCase('tr');
+         filterSlides(query);
+       });
+     }
+
+     if (clearSearch) {
+       clearSearch.addEventListener('click', () => {
+         if (searchInput) searchInput.value = '';
+         filterSlides('');
+         if (searchInput) searchInput.focus();
+       });
+     }
+
+     // Hash & TOC navigation
+     function navigateToTarget(targetHash, smooth = true) {
+       if (!targetHash || targetHash === '#' || targetHash.length <= 1) return;
+       const cleanHash = targetHash.startsWith('#') ? targetHash : `#${targetHash}`;
+       const rawId = cleanHash.slice(1);
+
+       let targetEl = null;
+       try {
+         targetEl = document.getElementById(rawId) || document.querySelector(cleanHash);
+       } catch (e) {}
+
+       if (rawId.startsWith('bolum-') && chapterMap.has(rawId)) {
+         const chData = chapterMap.get(rawId);
+         if (chData.firstCard) {
+           targetEl = chData.firstCard;
+         }
+       }
+
+       if (!targetEl) return;
+
+       const slide = targetEl.closest('.reader-slide');
+       if (slide) {
+         if (slide.hidden || slide.style.display === 'none') {
+           if (searchInput) searchInput.value = '';
+           filterSlides('');
+         }
+
+         const targetSlideIndex = visibleSlides.indexOf(slide);
+         if (targetSlideIndex !== -1) {
+           // Select target slide BEFORE vertical scrolling
+           goToSlide(targetSlideIndex, false);
+
+           updateTopBarHeight();
+           const topBarHeight = getTopBarHeight();
+           const readerRect = postReader.getBoundingClientRect();
+           const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+           const targetY = scrollY + readerRect.top - topBarHeight - 12;
+
+           const behavior = (smooth && !prefersReducedMotion()) ? 'smooth' : 'auto';
+           window.scrollTo({
+             top: Math.max(0, targetY),
+             behavior: behavior
+           });
+         }
+       } else {
+         updateTopBarHeight();
+         const topBarHeight = getTopBarHeight();
+         const elRect = targetEl.getBoundingClientRect();
+         const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+         const targetY = scrollY + elRect.top - topBarHeight - 12;
+
+         const behavior = (smooth && !prefersReducedMotion()) ? 'smooth' : 'auto';
+         window.scrollTo({
+           top: Math.max(0, targetY),
+           behavior: behavior
+         });
+       }
+     }
+
+     // Intercept TOC and hash link clicks for instant response and same-hash support
+     document.addEventListener('click', (e) => {
+       const link = e.target.closest('a[href*="#"]');
+       if (!link) return;
+       const href = link.getAttribute('href');
+       if (!href) return;
+
+       const hashIndex = href.indexOf('#');
+       if (hashIndex === -1) return;
+       const targetHash = href.slice(hashIndex);
+
+       if (targetHash === '#') {
+         e.preventDefault();
+         window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
+         return;
+       }
+
+       if (targetHash.startsWith('#entry-') || targetHash.startsWith('#bolum-')) {
+         e.preventDefault();
+         if (window.location.hash !== targetHash) {
+           history.pushState(null, '', targetHash);
+         }
+         navigateToTarget(targetHash, true);
+       }
+     });
+
+     window.addEventListener('hashchange', () => {
+       navigateToTarget(window.location.hash, true);
+     });
+
+     const initNavigation = () => {
+       updateTopBarHeight();
+       if (window.location.hash && window.location.hash.length > 1) {
+         navigateToTarget(window.location.hash, false);
+       } else {
+         if (visibleSlides.length > 0) {
+           goToSlide(0, false);
+         }
+       }
+     };
+
+     window.addEventListener('load', () => {
+       updateTopBarHeight();
+       initNavigation();
+     });
+
+     if (document.fonts && document.fonts.ready) {
+       document.fonts.ready.then(() => {
+         updateTopBarHeight();
+         updateViewportHeight();
+         if (window.location.hash && window.location.hash.length > 1) {
+           navigateToTarget(window.location.hash, false);
+         }
+       });
+     }
+
+     initNavigation();
+   }
 </script>
 
 </body>

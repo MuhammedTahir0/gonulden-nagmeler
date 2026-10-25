@@ -9,6 +9,7 @@ Bu proje, **Nur Kendir**'in ([@hafsa_ennur38](https://www.instagram.com/hafsa_en
 ## ✨ Özellikler
 
 - 📜 **95 Bölümlük Tam Arşiv:** Her gönderinin hem ana görsel aforizması hem de alt tefekkür metni eksiksiz yer alır.
+- **Yatay Gönderi Okuyucu:** Gönderiler alt alta sıralanmak yerine tek kart olarak açılır. Telefonda sağa/sola kaydırın; bilgisayarda Önceki/Sonraki düğmelerini veya okuyucu odaktayken yön tuşlarını kullanın. Sayaç geçerli sırayı gösterir; uzun yazılar dikey okunmaya devam eder.
 - 🔍 **Canlı Arama & Filtreleme:** Arama çubuğu üzerinden başlık ve metinler içinde anında arama yapılabilir.
 - 📊 **Okuma İlerleme Çubuğu:** Sayfayı kaydırdıkça okuma durumunu gösteren zarif gösterge.
 - 📑 **İçindekiler Fihristi:** 6 ana tematik bölüme ayrılmış hızlı atlama fihristi:
@@ -21,6 +22,14 @@ Bu proje, **Nur Kendir**'in ([@hafsa_ennur38](https://www.instagram.com/hafsa_en
 - 🖨️ **Baskı & PDF Modu:** Tek tuşla temiz, sayfa numaralı ve kitap formatında PDF çıktısı alma desteği.
 - 📱 **Duyarlı Tasarım:** Telefonlarda uzun metin ve hashtag satırları taşmadan kırılır; dar ekranlarda kart başlıkları ve bağlantılar alt alta yerleşir. Üst menü iki satıra iner, dokunmatik kontroller en az 44 px alana sahiptir.
 - ⚡ **Sıfır Bağımlılık:** Hızlı yüklenen, harici çerçeve (framework) gerektirmeyen saf HTML5, CSS3 ve modern JavaScript.
+
+### Yatay kaydırmalı okuma — 2026-10-25
+
+- 95 yazı özgün tematik sırasıyla tek bir yerel yatay kaydırma alanına taşındı; kart yüksekliği aktif yazıya göre değişir. Altı bölüm girişi ve bütün yazı metinleri korundu.
+- Arama yalnız eşleşen gönderiler arasında gezinir. Fihrist ve doğrudan gönderi/bölüm bağlantıları ilgili kartı seçer; gerekirse arama filtresini temizler.
+- Yazdırma/PDF görünümü, arama filtresi açık olsa bile 95 yazıyı ve altı bölüm girişini dikey kitap düzeninde açar. JavaScript kapalıysa özgün dikey okuma görünümü kullanılabilir.
+- OMP Gemini 3.8 Flash/high alt ajanları uyguladı ve gerçek Chromium/CDP dokunma olaylarıyla iki yönde kaydırmayı doğruladı. Kısa/uzun kart yüksekliği, düğmeler, klavye, arama, bağlantılar, yazdırma medyası ve JavaScript kapalı görünüm kontrol edildi; özgün 95 yazının kimlikleri, sırası ve metinleri değişmedi.
+- 320–1440 px genişlikler ve yatay telefon görünümünde kontrol edildi. Fiziksel telefon/Safari üzerinde test yapılmadı.
 
 ### Mobil uyumluluk düzeltmesi — 2026-10-25
 
